@@ -1,12 +1,18 @@
 # Codemod styled-theme-color
 
+Автоматический заменяет hex цвет в styled компоненте на алиас из темы.
+
 ### Использование
 Для того чтобы применить `codemod` к всем файлам в папке выполните код ниже:
 
 ```
-$ THEME_PATH='./theme.ts'\
+$ THEME_PATH=./transform/theme.ts IMPORT_PATH=@root/theme\
   npx jscodeshift ./folder -t ./styled-theme-color.js -d -p
 ```
+
+Переменные окружения:
+- `THEME_PATH` - путь от корня проекта к файлу темы;
+- `IMPORT_PATH` - пусть на который будет использоваться при добавлении импорта темы;
 
 Файл темы должен экспортиться именованно:
 ```ts

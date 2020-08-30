@@ -3,9 +3,10 @@ import styled from 'styled';
 import { theme } from '@root/theme';
 
 const Button = styled.button`
-    color: ${theme.primary};
+	color: #212B36;
 `;
 
 const Text1 = styled.p`
-   background: ${theme.primary};
-   ${props => props.value ? 'one' : 'two'}`
+   background: '#212B36';
+   ${props => props.value ? 'one' : 'two'}
+`
