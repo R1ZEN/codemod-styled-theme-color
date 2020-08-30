@@ -1,23 +1,16 @@
 import { API, FileInfo } from 'jscodeshift/src/core'
-import { getColorPath } from './get-color-path'
+import { getColorPath, hasColorPath } from './get-color-path'
 import { getImportPath } from './get-import-path'
 
 const hexColorRegExp = /#(?:[0-9a-fA-F]{3}){1,2}/
-const hasColor = (text) => hexColorRegExp.test(text)
+const hasColor = (text) =>
+  (text.match(hexColorRegExp) || ['']).every((color) => hasColorPath(color))
 
 const getTemplateElementWithColor = (j, root) => {
   return root.find(j.TemplateElement).filter((path) => {
     const { value } = path
 
     return hasColor(value.value.raw)
-  })
-}
-
-const getStringLiteralsWithColor = (j, root) => {
-  return root.find(j.Literal).filter((path) => {
-    const { value } = path
-
-    return hasColor(value.value)
   })
 }
 
@@ -76,14 +69,6 @@ const updateTemplateLiterals = (j, root) => {
       },
       value.tail
     )
-  })
-}
-
-const updateStringLiterals = (j, root) => {
-  getStringLiteralsWithColor(j, root).replaceWith((path) => {
-    const { value } = path
-
-    return j.literal(getColorPath(value.value))
   })
 }
 

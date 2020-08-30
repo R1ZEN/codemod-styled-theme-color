@@ -3,7 +3,7 @@ import { getThemePath } from './get-theme-path'
 
 const colorPathMap = new Map()
 
-const fillColorPathMap = () => {
+function fillColorPathMap() {
   const themePath = getThemePath()
   let theme
   if (themePath) {
@@ -65,10 +65,7 @@ const fillColorPathMap = () => {
   }
 }
 
-export const getColorPath = (color) => {
-  if (!colorPathMap.size) {
-    fillColorPathMap()
-  }
+fillColorPathMap()
 
-  return colorPathMap.get(color)
-}
+export const getColorPath = (color: string) => colorPathMap.get(color)
+export const hasColorPath = (color: string) => colorPathMap.has(color)
