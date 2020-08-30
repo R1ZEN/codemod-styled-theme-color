@@ -33,4 +33,9 @@ $ npm i
 $ npm test
 ```
 
+### Полезные ссылки
+- [AST Explorer](https://astexplorer.net/)
+- [jscodeshift](https://github.com/facebook/jscodeshift)
+- [codemod examples](https://github.com/cpojer/js-codemod/tree/master/transforms)
+
 
