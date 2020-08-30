@@ -7,7 +7,7 @@
 
 ```
 $ THEME_PATH=./transform/theme.ts IMPORT_PATH=@root/theme\
-  npx jscodeshift ./folder -t ./styled-theme-color.js -d -p
+  npx jscodeshift --parser-config=.babelrc ./folder -t ./transform/styled-theme-color.ts -d -p
 ```
 
 Переменные окружения:

@@ -4,20 +4,23 @@
   "main": "transform/styled-theme-color.ts",
   "license": "MIT",
   "scripts": {
+    "codemod": "THEME_PATH=./transform/theme.ts IMPORT_PATH=@root/theme jscodeshift --parser-config=.babelrc --extensions=tsx ./fixture -t ./transform/styled-theme-color.ts -d -p",
+    "build": "rollup -c",
     "test": "THEME_PATH=./transform/theme.ts IMPORT_PATH=@root/theme jest",
     "test:watch": "npm test -- --watch"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@rollup/plugin-babel": "^5.2.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "@types/jscodeshift": "^0.7.1",
     "husky": "^4.2.5",
     "jest": "^26.4.2",
+    "jscodeshift": "^0.10.0",
+    "prettier": "^2.1.1",
+    "rollup": "^2.26.8",
     "typescript": "^4.0.2"
-  },
-  "dependencies": {
-    "babel-cli": "^6.26.0",
-    "@babel/core": "^7.11.4",
-    "@babel/preset-typescript": "^7.10.4",
-    "jscodeshift": "^0.10.0"
   },
   "jest": {
     "bail": true,

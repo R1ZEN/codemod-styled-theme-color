@@ -1,1 +1,1 @@
-module.exports.getImportPath = () => process.env.IMPORT_PATH || '';
+export const getImportPath = () => process.env.IMPORT_PATH || '';

@@ -1,1 +1,1 @@
-module.exports.getThemePath = () => process.env.THEME_PATH || '';
+export const getThemePath = () => process.env.THEME_PATH || '';
