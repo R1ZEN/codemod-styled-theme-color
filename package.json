@@ -8,8 +8,9 @@
     "test:watch": "jest --watch"
   },
   "devDependencies": {
-    "jest": "^26.4.2",
-    "@types/jscodeshift": "^0.7.1"
+    "@types/jscodeshift": "^0.7.1",
+    "husky": "^4.2.5",
+    "jest": "^26.4.2"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -21,5 +22,10 @@
     "roots": [
       "transform/__tests__"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
   }
 }
