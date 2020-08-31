@@ -2,9 +2,9 @@ import { API, FileInfo } from 'jscodeshift/src/core'
 import { getColorPath, hasColorPath } from './get-color-path'
 import { getImportPath } from './get-import-path'
 
-const hexColorRegExp = /#(?:[0-9a-fA-F]{3}){1,2}/
+const hexColorRegExp = /#(?:[0-9a-fA-F]{3}){1,2}/g
 const hasColor = (text) =>
-  (text.match(hexColorRegExp) || ['']).every((color) => hasColorPath(color))
+  (text.match(hexColorRegExp) || ['']).some((color) => hasColorPath(color))
 
 const getTemplateElementWithColor = (j, root) => {
   return root.find(j.TemplateElement).filter((path) => {
